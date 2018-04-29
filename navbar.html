@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div class="bar-icon">
+		  <div class="nav-bar1"></div>
+		  <div class="nav-bar2"></div>
+		  <div class="nav-bar3"></div>
+		</div>
+		<div class="menu">
+			<ul class="main-menu">
+			<li class="active">Home</li>
+			<li>About Me</li>
+			<li class="submenu">Technologies<span>&#9660;</span>
+				<div class="submenu-list">
+					<ul>
+					<li><a>PHP</a></li>
+					<li><a>CSS</a></li>
+					<li><a>HTML</a></li>
+					<li><a>Mysql</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>Services</li>
+			<li>Portfolio</li>
+			<li>Contact us</li>
+		</ul>
+		</div>
+	</div>
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.bar-icon{
+		display: none;
+	}
+	.nav-bar1, .nav-bar2, .nav-bar3 {
+    width: 28px;
+    height: 5px;
+    background-color: #00BCD4;
+    margin: 4px 0;
+	}
+	.container {
+    width: 60%;
+    margin: 0 auto;
+	}
+	.menu {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 11px 43px 0 rgba(0, 0, 0, .2);
+    margin: 2% 0;
+	}
+	ul.main-menu{
+	display: flex;
+    background: #00BCD4;
+    flex-direction: row;
+    width: 100%;
+    color: #fff;
+    justify-content: center;
+	}
+	ul.main-menu > li {
+    padding: 18px;
+    list-style-type: none;
+    font-size: 1rem;
+    cursor: pointer;
+	}
+	ul.main-menu > li:hover{
+		color: #dad3d0;
+	}
+	.submenu-list{
+	position: absolute;
+	display: none;
+    margin-top: 18px;
+    background: #00BCD4;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 1%;
+    color: #fff;
+    padding-bottom: 1%;
+    text-align: left;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 29px 43px 0 rgba(0, 0, 0, .2);
+	}   
+	.submenu-list>ul>li {
+    list-style-type: none;
+    padding: 5px;
+	}
+	.submenu-list>ul>li:hover{
+		color: #dad3d0;
+	}
+
+	@media screen and (max-width:850px){
+	.bar-icon{
+		display: block;
+		cursor: pointer;
+	}
+	ul.main-menu{
+   		display: none;
+	}
+	.submenu-list {
+	    position: relative;
+	    margin-top: 1%;
+	    width: 100%;
+	}
+	.submenu-list>ul{
+		padding: 0;
+	}
+	.submenu-list>ul>li {
+	   text-align: center;
+	}
+}
+@media screen and (min-width:851px) and (max-width:991px){
+	ul.main-menu > li {
+    padding: 15px;
+    font-size: 0.9rem;
+}
+}
+</style>
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+	<script>	
+		$(document).ready(function(e){
+			$('.main-menu li').not('.submenu').click(function(){
+				$('.submenu-list').hide(500);
+			});	
+			$('.submenu').click(function(){
+				$('.submenu-list').toggle(500);
+			});
+			
+			$('.bar-icon').click(function(){
+				$('ul.main-menu').toggle(500);
+			})
+
+		});
+	</script>
+
+</body>
+</html>
